@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import fs from 'fs';
 import rehype from 'rehype';
 
 // hast AST tree
@@ -14,7 +14,7 @@ rehype()
   .data('settings', {fragment: true})
   .use(sanitize, schema)
 //   .use(handler, { attr: 'page-scroll' })
-  .process(fs.readFileSync('./raw.html'), function(err, file) {
+  .process(fs.readFileSync(`${__dirname}/raw.html`), function(err, file) {
     if (err) throw err
     console.log(String(file))
   });
