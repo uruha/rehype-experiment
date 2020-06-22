@@ -1,12 +1,8 @@
+import { Transformer } from 'unified';
 import { Node } from 'unist';
-import { VFile } from 'vfile';
 
 export type CustomAttr = {
     attr: string
-}
-
-interface DoneCallbackType {
-    (argv?: Error): Promise<void | Error>;
 }
 interface AppendCustomAttr {
     (node: Node | ExNode, opt: CustomAttr): Boolean
@@ -59,18 +55,21 @@ const cover: CoverNodes = (
     }
 };
 
-export const customAttrHandler = (opt: CustomAttr) => {
+export const customAttrHandler = (opt: CustomAttr): Transformer => {
     if(!opt) {
         console.warn('This handler need "attr" property !');
-        return (node: Node, vfile: VFile, done: DoneCallbackType) => done();
+        // @ts-ignore
+        return (node, vfile, next) => next();
     }
 
-    return (node: Node, vfile: VFile, done: DoneCallbackType) => {
+    return (node, vfile, next) => {
         try {
             cover(appendCustomAttr, node, null, 0, opt);
-            done();
+            // @ts-ignore
+            next();
         } catch (err) {
-            done(err);
+            // @ts-ignore
+            next(err);
         }
     };
 };
