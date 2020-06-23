@@ -1,7 +1,7 @@
 import { Transformer } from 'unified';
 import { Node } from 'unist';
 
-export type CustomAttr = {
+type CustomAttr = {
     attr: string
 }
 type AppendedAttr = {
