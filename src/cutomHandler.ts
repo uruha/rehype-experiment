@@ -48,7 +48,7 @@ const appendCustomAttr: AppendCustomAttr = (node, opt) => {
 
 const cover: CoverNodes = (
     converter, node, parentNode, index, opt
-): void => {
+) => {
     if(converter(node, opt)) return;
     if(!node.children) return;
 
