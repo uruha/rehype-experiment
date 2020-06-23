@@ -1,5 +1,5 @@
-const h = require('hastscript');
-const toHtml = require('hast-util-to-html');
+import h from 'hastscript';
+import toHtml from 'hast-util-to-html';
 
 const tree = h('.alpha', [
   'bravo ',
@@ -8,4 +8,4 @@ const tree = h('.alpha', [
   h('a.echo', {pageScroll: true}, 'foxtrot')
 ]);
 
-console.log(toHtml(tree));
+export default toHtml(tree);

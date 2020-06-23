@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "node sanitize.js"
+    "dev": "ts-node --files -r tsconfig-paths/register src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,11 @@
     "hastscript": "^5.1.2",
     "rehype": "^11.0.0",
     "rehype-sanitize": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.13",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.5"
   }
 }
