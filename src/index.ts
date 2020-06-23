@@ -16,7 +16,6 @@ import { customAttrHandler } from './cutomHandler';
 rehype()
   .data('settings', {fragment: true})
   .use(sanitize, schema)
-  // @ts-ignore
   .use(customAttrHandler, { attr: 'page-scroll' })
   .process(fs.readFileSync(`${__dirname}/raw.html`), function(err, file) {
     if (err) throw err
